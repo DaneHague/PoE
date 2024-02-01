@@ -3,13 +3,15 @@ using Microsoft.Extensions.DependencyInjection;
 using PoE.Services;
 using PoE.Services.Implementations;
 
-namespace Poe.Functions;
-
 [assembly: FunctionsStartup(typeof(Poe.Functions.Startup))]
-public class Startup : FunctionsStartup
+
+namespace Poe.Functions
 {
-    public override void Configure(IFunctionsHostBuilder builder)
+    public class Startup : FunctionsStartup
     {
-        builder.Services.AddSingleton<IGetProfileInfo, GetProfileInfo>();
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            builder.Services.AddSingleton<IGetProfileInfo, GetProfileInfo>();
+        }
     }
 }

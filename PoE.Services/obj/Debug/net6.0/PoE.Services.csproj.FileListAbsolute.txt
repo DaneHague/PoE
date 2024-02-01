@@ -1,0 +1,12 @@
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/bin/Debug/net6.0/PoE.Services.deps.json
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/bin/Debug/net6.0/PoE.Services.dll
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/bin/Debug/net6.0/PoE.Services.pdb
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.AssemblyInfoInputs.cache
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.AssemblyInfo.cs
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.csproj.CoreCompileInputs.cache
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.sourcelink.json
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.dll
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/refint/PoE.Services.dll
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/PoE.Services.pdb
+/Users/dane/RiderProjects/PoE.Functions/PoE.Services/obj/Debug/net6.0/ref/PoE.Services.dll

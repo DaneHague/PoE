@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a396ccb0-5c96-47de-be9e-78728400a945" name="Changes" comment="" />
+    <list default="true" id="a396ccb0-5c96-47de-be9e-78728400a945" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PoE.Functions/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PoE.Functions/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poe.Functions/Triggers/Currency.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Poe.Functions/Triggers/Currency.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706774911895</updated>
-      <workItem from="1706774913347" duration="3343000" />
+      <workItem from="1706774913347" duration="4582000" />
     </task>
     <servers />
   </component>
@@ -100,5 +103,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PoE.Services/Implementations/GetProfileInfo.cs</url>
+          <line>6</line>
+          <properties documentPath="$PROJECT_DIR$/PoE.Services/Implementations/GetProfileInfo.cs" initialLine="6" containingFunctionPresentation="Method 'GetProfile'">
+            <startOffsets>
+              <option value="132" />
+            </startOffsets>
+            <endOffsets>
+              <option value="168" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -15,8 +15,12 @@ public class Currency
     }
     
     [FunctionName("CurrencyTrigger")]
-    public static void Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
+    public void Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Currency trigger started at {DateTime.Now}");
+        
+        _getProfileInfo.GetProfile();
+        
+        log.LogInformation($"Currency trigger finished at {DateTime.Now}");
     }
 }

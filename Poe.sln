@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poe.Functions", "Poe.Functions\Poe.Functions.csproj", "{58589931-E39C-451E-8DA8-DA41E4D29FC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoE.Services", "PoE.Services\PoE.Services.csproj", "{01994C86-F7DB-4AB9-A0F1-60F744E76025}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58589931-E39C-451E-8DA8-DA41E4D29FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58589931-E39C-451E-8DA8-DA41E4D29FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58589931-E39C-451E-8DA8-DA41E4D29FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58589931-E39C-451E-8DA8-DA41E4D29FC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01994C86-F7DB-4AB9-A0F1-60F744E76025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01994C86-F7DB-4AB9-A0F1-60F744E76025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01994C86-F7DB-4AB9-A0F1-60F744E76025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01994C86-F7DB-4AB9-A0F1-60F744E76025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

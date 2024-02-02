@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using PoE.Services;
@@ -12,6 +13,12 @@ namespace Poe.Functions
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddSingleton<IGetProfileInfo, GetProfileInfo>();
+            
+            builder.Services.AddHttpClient<IGetStashService, GetStashService>(client =>
+            {
+                client.BaseAddress = new Uri("https://example.com/");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
         }
     }
 }

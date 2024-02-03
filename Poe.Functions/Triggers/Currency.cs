@@ -1,7 +1,9 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using PoE.Services;
+using PoE.Services.Models;
 
 namespace Poe.Functions.Triggers;
 
@@ -22,13 +24,16 @@ public class Currency
     }
     
     [FunctionName("CurrencyTrigger")]
-    public void Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
+    public async Task Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Currency trigger started at {DateTime.Now}");
         
-        _getStashService.GetAllStashTabs();
+        var stashes = await _getStashService.GetAllStashTabs();
 
-        _cosmosService.tst();
+        foreach (Stash stash in stashes.Stashes)
+        {
+            await _cosmosService.CreateItemAsync(stash, stash.id);
+        }
         
         log.LogInformation($"Currency trigger finished at {DateTime.Now}");
     }

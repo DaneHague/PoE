@@ -14,7 +14,7 @@ public class CosmosService : ICosmosService
         CosmosClient cosmosClient)
     {
         _cosmosClient = cosmosClient;
-        _container = _cosmosClient.GetContainer(config.Database, "Items");
+        _container = _cosmosClient.GetContainer(config.Database, "StashContainer");
     }
 
     public string GetContainerName<T>()
@@ -23,9 +23,8 @@ public class CosmosService : ICosmosService
         return attr?.Name;
     }
 
-    public void tst()
+    public async Task<T> CreateItemAsync<T>(T item, string partitionKey) where T : ICosmosEntity
     {
-        var containerName = GetContainerName<CosmosItem>();
-        var x = 2;
+        return await _container.CreateItemAsync(item, new PartitionKey(partitionKey));
     }
 }

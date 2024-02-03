@@ -1,6 +1,8 @@
+using PoE.Services.Models.Cosmos;
+
 namespace PoE.Services;
 
 public interface ICosmosService
 {
-    void tst();
+    Task<T> CreateItemAsync<T>(T item, string partitionKey) where T : ICosmosEntity;
 }

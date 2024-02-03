@@ -1,4 +1,5 @@
-﻿using PoE.Services.Models;
+﻿using System.Text.Json;
+using PoE.Services.Models;
 
 namespace PoE.Services.Implementations;
 
@@ -11,9 +12,20 @@ public class GetStashService : IGetStashService
         _httpClient = httpClient;
     }
     
-    public Task<Stash> GetAllStashTabs()
+    
+    public async Task<Stash> GetAllStashTabs()
     {
-        var x = _httpClient.BaseAddress;
-        return null;
+        Uri t = new Uri(_httpClient.BaseAddress, "/stash/affliction");
+        var response = await _httpClient.GetAsync(t);
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new HttpRequestException("Error fetching stash tabs");
+        }
+        
+        var content = await response.Content.ReadAsStringAsync();
+        return JsonSerializer.Deserialize<Stash>(content);
+        
+        
     }
 }

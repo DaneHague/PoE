@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http.Headers;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
@@ -24,7 +25,7 @@ namespace Poe.Functions
                 builtConfig["AZURE_TENANT_ID"], 
                 builtConfig["AZURE_CLIENT_ID"], 
                 builtConfig["AZURE_CLIENT_SECRET"]);
-
+            
             var config = new ConfigurationBuilder()
                 .AddAzureKeyVault(new Uri(builtConfig["KEYVAULT_URL"]), credential)
                 .Build();
@@ -42,6 +43,7 @@ namespace Poe.Functions
             {
                 client.BaseAddress = new Uri(poeConfig.BaseApiAddress);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", poeConfig.ApiToken);
             });
         }
     }

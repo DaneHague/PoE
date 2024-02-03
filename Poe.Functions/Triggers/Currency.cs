@@ -8,10 +8,14 @@ namespace Poe.Functions.Triggers;
 public class Currency
 {
     private readonly IGetProfileInfo _getProfileInfo;
+    private readonly IGetStashService _getStashService;
 
-    public Currency(IGetProfileInfo getProfileInfo)
+    public Currency(
+            IGetProfileInfo getProfileInfo, 
+            IGetStashService getStashService)
     {
         _getProfileInfo = getProfileInfo;
+        _getStashService = getStashService;
     }
     
     [FunctionName("CurrencyTrigger")]
@@ -19,7 +23,7 @@ public class Currency
     {
         log.LogInformation($"Currency trigger started at {DateTime.Now}");
         
-        _getProfileInfo.GetProfile();
+        _getStashService.GetAllStashTabs();
         
         log.LogInformation($"Currency trigger finished at {DateTime.Now}");
     }

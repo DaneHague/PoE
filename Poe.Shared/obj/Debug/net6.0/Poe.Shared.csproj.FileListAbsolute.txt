@@ -1,0 +1,12 @@
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/bin/Debug/net6.0/Poe.Shared.deps.json
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/bin/Debug/net6.0/Poe.Shared.dll
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/bin/Debug/net6.0/Poe.Shared.pdb
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.AssemblyInfoInputs.cache
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.AssemblyInfo.cs
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.csproj.CoreCompileInputs.cache
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.sourcelink.json
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.dll
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/refint/Poe.Shared.dll
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/Poe.Shared.pdb
+/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/obj/Debug/net6.0/ref/Poe.Shared.dll

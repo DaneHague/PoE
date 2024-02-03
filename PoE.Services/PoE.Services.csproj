@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.35.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Poe.Shared\Poe.Shared.csproj" />
+    </ItemGroup>
+
 </Project>

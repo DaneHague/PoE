@@ -2,6 +2,7 @@ using System;
 using System.Net.Http.Headers;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +34,21 @@ namespace Poe.Functions
             // Assuming you want to bind directly here
             var poeConfig = new PoEConfig();
             config.GetSection("PoEConfig").Bind(poeConfig);
+            
+            var cosmosConfig = new CosmosConfig();
+            config.GetSection("CosmosConfig").Bind(cosmosConfig);
+            builder.Services.AddSingleton(cosmosConfig);
+            
+            builder.Services.AddTransient<CosmosClient>(s =>
+            {
+                var configuration = s.GetService<IConfiguration>();
+                return new CosmosClient(
+                    cosmosConfig.ConnectionString);
+            });
+
+            
+            builder.Services.AddTransient<ICosmosService, CosmosService>();
+
 
             // Registering services
             builder.Services.AddTransient<IGetProfileInfo, GetProfileInfo>();

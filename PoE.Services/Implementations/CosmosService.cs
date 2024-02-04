@@ -27,4 +27,9 @@ public class CosmosService : ICosmosService
     {
         return await _container.CreateItemAsync(item, new PartitionKey(partitionKey));
     }
+
+    public async Task<T> UpdateItemAsync<T>(T item, string partitionKey) where T : ICosmosEntity
+    {
+        return await _container.UpsertItemAsync(item, new PartitionKey(partitionKey));
+    }
 }

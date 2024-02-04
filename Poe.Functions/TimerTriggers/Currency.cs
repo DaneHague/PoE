@@ -28,13 +28,6 @@ public class Currency
     {
         log.LogInformation($"Currency trigger started at {DateTime.Now}");
         
-        var stashes = await _getStashService.GetAllStashTabs();
-
-        foreach (Stash stash in stashes.Stashes)
-        {
-            await _cosmosService.CreateItemAsync(stash, stash.id);
-        }
-        
         log.LogInformation($"Currency trigger finished at {DateTime.Now}");
     }
 }

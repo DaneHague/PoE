@@ -5,6 +5,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using PoE.Services;
+using PoE.Services.Models;
 
 namespace Poe.Functions.HttpTriggers;
 
@@ -29,9 +30,9 @@ public class UpdateStashTabs
 
         var stashes = await _getStashService.GetAllStashTabs();
         
-        foreach (var stash in stashes.Stashes)
+        foreach (CosmosStash stash in stashes.Stashes)
         {
-            await _cosmosService.UpdateItemAsync(stash, stash.id);
+            await _cosmosService.UpsertItemAsync(stash, stash.id);
         }
         
         log.LogInformation($"Update Stash Tabs trigger finished at {DateTime.Now}");

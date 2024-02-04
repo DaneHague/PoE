@@ -3,15 +3,15 @@ using PoE.Services.Models.Cosmos;
 
 namespace PoE.Services.Models;
 
-public class CosmosStash
+public class Stash
 {
     [JsonPropertyName("stashes")]
-    public List<Stash> Stashes { get; set; }
+    public List<CosmosStash> Stashes { get; set; }
     
 }
 
 [Container("StashContainer")]
-public class Stash : ICosmosEntity
+public class CosmosStash : ICosmosEntity
 {
     [JsonPropertyName("name")]
     public string Name { get; set; }

@@ -13,7 +13,7 @@ public class GetStashService : IGetStashService
     }
     
     
-    public async Task<CosmosStash> GetAllStashTabs()
+    public async Task<Stash> GetAllStashTabs()
     {
         Uri t = new Uri(_httpClient.BaseAddress, "/stash/affliction");
         var response = await _httpClient.GetAsync(t);
@@ -24,8 +24,6 @@ public class GetStashService : IGetStashService
         }
         
         var content = await response.Content.ReadAsStringAsync();
-        return JsonSerializer.Deserialize<CosmosStash>(content);
-        
-        
+        return JsonSerializer.Deserialize<Stash>(content);
     }
 }

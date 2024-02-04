@@ -32,7 +32,7 @@ public class GetStashTabs
         
         var stashes = await _getStashService.GetAllStashTabs();
 
-        foreach (Stash stash in stashes.Stashes)
+        foreach (CosmosStash stash in stashes.Stashes)
         {
             await _cosmosService.CreateItemAsync(stash, stash.id);
         }

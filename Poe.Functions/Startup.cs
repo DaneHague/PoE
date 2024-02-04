@@ -53,9 +53,17 @@ namespace Poe.Functions
             // Registering services
             builder.Services.AddTransient<IGetProfileInfo, GetProfileInfo>();
             builder.Services.AddTransient<IGetStashService, GetStashService>();
+            builder.Services.AddTransient<IGetCurrencyItems, GetCurrencyItems>();
 
             // HTTP client setup
             builder.Services.AddHttpClient<IGetStashService, GetStashService>(client =>
+            {
+                client.BaseAddress = new Uri(poeConfig.BaseApiAddress);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", poeConfig.ApiToken);
+            });
+            
+            builder.Services.AddHttpClient<IGetCurrencyItems, GetCurrencyItems>(client =>
             {
                 client.BaseAddress = new Uri(poeConfig.BaseApiAddress);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");

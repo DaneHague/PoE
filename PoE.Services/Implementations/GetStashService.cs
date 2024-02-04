@@ -6,10 +6,14 @@ namespace PoE.Services.Implementations;
 public class GetStashService : IGetStashService
 {
     private readonly HttpClient _httpClient;
+    private readonly ICosmosService _cosmosService;
 
-    public GetStashService(HttpClient httpClient)
+    public GetStashService(
+        HttpClient httpClient,
+        ICosmosService cosmosService)
     {
         _httpClient = httpClient;
+        _cosmosService = cosmosService;
     }
     
     
@@ -25,5 +29,11 @@ public class GetStashService : IGetStashService
         
         var content = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<Stash>(content);
+    }
+    
+    public async Task<string> GetStashByType(string type)
+    {
+        var x = await _cosmosService.GetItemsAsyncQuery<CosmosStash>($"SELECT * FROM c WHERE c.Type = '{type}'");
+        return x.First().id;
     }
 }

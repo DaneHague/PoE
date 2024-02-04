@@ -1,26 +1,24 @@
 using System.Text.Json;
-using PoE.Services.Models;
-using PoE.Services.Models.Cosmos.PoE;
-using PoE.Services.Models.Cosmos.PoE.CosmosCurrencyItems;
+using PoE.Services.Models.Cosmos.PoE.CosmosStashItems;
 
 namespace PoE.Services.Implementations;
 
-public class GetCurrencyItems : IGetCurrencyItems
+public class GetEssenceItems : IGetEssenceItems
 {
-    private readonly HttpClient _httpClient;
     private readonly IGetStashService _getStashService;
+    private readonly HttpClient _httpClient;
 
-    public GetCurrencyItems(
+    public GetEssenceItems(
         HttpClient httpClient,
         IGetStashService getStashService)
     {
         _httpClient = httpClient;
         _getStashService = getStashService;
     }
-
-    public async Task<CurrencyStashResponse> GetAllCurrencyItems()
+    
+    public async Task<EssenceStashResponse> GetAllEssenceItems()
     {
-        string tabId = await _getStashService.GetStashByType("CurrencyStash");
+        string tabId = await _getStashService.GetStashByType("EssenceStash");
         Uri t = new Uri(_httpClient.BaseAddress, $"/stash/affliction/{tabId}");
         var response = await _httpClient.GetAsync(t);
         
@@ -30,8 +28,6 @@ public class GetCurrencyItems : IGetCurrencyItems
         }
         
         var content = await response.Content.ReadAsStringAsync();
-        return JsonSerializer.Deserialize<CurrencyStashResponse>(content);
+        return JsonSerializer.Deserialize<EssenceStashResponse>(content);
     }
-
-    
 }

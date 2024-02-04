@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using PoE.Services;
 using PoE.Services.Models;
 using PoE.Services.Models.Cosmos.PoE;
+using PoE.Services.Models.Cosmos.PoE.CosmosCurrencyItems;
 
 namespace Poe.Functions.Triggers;
 
@@ -25,10 +26,10 @@ public class Currency
     public async Task Run([TimerTrigger("0 */30 * * * *")] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Currency trigger started at {DateTime.Now}");
-
+    
         var items = await _getCurrencyItems.GetAllCurrencyItems();
         
-        foreach (CosmosCurrencyItem currencyItem in items.Stash.Items)
+        foreach (CosmosCurrencyItems currencyItem in items.Stash.Items)
         {
             await _cosmosService.UpsertItemAsync(currencyItem, currencyItem.id);
         }

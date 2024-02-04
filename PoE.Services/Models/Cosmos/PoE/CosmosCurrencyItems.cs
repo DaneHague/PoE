@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace PoE.Services.Models.Cosmos.PoE
+namespace PoE.Services.Models.Cosmos.PoE.CosmosCurrencyItems
 {
-    public class StashResponse
+    public class CurrencyStashResponse
     {
         [JsonPropertyName("stash")]
         public CurrencyStash Stash { get; set; }
@@ -19,10 +19,10 @@ namespace PoE.Services.Models.Cosmos.PoE
         [JsonPropertyName("index")]
         public int Index { get; set; }
         [JsonPropertyName("items")]
-        public List<CosmosCurrencyItem> Items { get; set; }
+        public List<CosmosCurrencyItems> Items { get; set; }
     }
     [Container("ItemContainer")]
-    public class CosmosCurrencyItem : ICosmosEntity
+    public class CosmosCurrencyItems : ICosmosEntity
     {
         [JsonPropertyName("id")]
         public string id { get; set; }

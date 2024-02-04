@@ -21,7 +21,7 @@ public class Essence
         _cosmosService = cosmosService;
     }
     
-    [FunctionName("Essence")]
+    [FunctionName("EssenceTrigger")]
     public async Task Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Essence trigger started at {DateTime.Now}");

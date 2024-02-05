@@ -24,6 +24,7 @@
         </None>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Poe.Redis\Poe.Redis.csproj" />
       <ProjectReference Include="..\PoE.Services\PoE.Services.csproj" />
       <ProjectReference Include="..\Poe.Shared\Poe.Shared.csproj" />
     </ItemGroup>

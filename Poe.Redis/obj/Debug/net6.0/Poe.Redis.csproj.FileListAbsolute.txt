@@ -1,0 +1,12 @@
+C:\Users\Dane\source\repos\PoE\Poe.Redis\bin\Debug\net6.0\Poe.Redis.deps.json
+C:\Users\Dane\source\repos\PoE\Poe.Redis\bin\Debug\net6.0\Poe.Redis.dll
+C:\Users\Dane\source\repos\PoE\Poe.Redis\bin\Debug\net6.0\Poe.Redis.pdb
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.csproj.AssemblyReference.cache
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.AssemblyInfoInputs.cache
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.AssemblyInfo.cs
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.csproj.CoreCompileInputs.cache
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.dll
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\refint\Poe.Redis.dll
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\Poe.Redis.pdb
+C:\Users\Dane\source\repos\PoE\Poe.Redis\obj\Debug\net6.0\ref\Poe.Redis.dll

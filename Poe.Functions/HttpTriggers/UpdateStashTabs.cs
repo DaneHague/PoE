@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
+using Poe.Redis;
 using PoE.Services;
 using PoE.Services.Models;
 
@@ -16,8 +17,7 @@ public class UpdateStashTabs
 
     public UpdateStashTabs(
         IGetStashService getStashService,
-        ICosmosService cosmosService
-        )
+        ICosmosService cosmosService)
     {
         _getStashService = getStashService;
         _cosmosService = cosmosService;
@@ -27,7 +27,7 @@ public class UpdateStashTabs
     public async Task Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "UpdateStashTabs")] HttpRequest req, ILogger log)
     {
         log.LogInformation($"Update Stash Tabs trigger started at {DateTime.Now}");
-
+        
         var stashes = await _getStashService.GetAllStashTabs();
         
         foreach (CosmosStash stash in stashes.Stashes)

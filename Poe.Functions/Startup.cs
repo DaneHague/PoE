@@ -7,6 +7,7 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Poe.Functions.Config;
+using Poe.Redis;
 using PoE.Services;
 using PoE.Services.Implementations;
 
@@ -30,10 +31,22 @@ namespace Poe.Functions
             var config = new ConfigurationBuilder()
                 .AddAzureKeyVault(new Uri(builtConfig["KEYVAULT_URL"]), credential)
                 .Build();
-    
-            // Assuming you want to bind directly here
+            
             var poeConfig = new PoEConfig();
             config.GetSection("PoEConfig").Bind(poeConfig);
+            
+            var redisConfig = new RedisConfig();
+            config.GetSection("RedisConfig").Bind(redisConfig);
+            builder.Services.AddSingleton(redisConfig);
+            
+            builder.Services.AddSingleton<RedisClient>(serviceProvider =>
+            {
+                var config = serviceProvider.GetRequiredService<RedisConfig>();
+                return new RedisClient(config);
+            });
+
+
+
             
             var cosmosConfig = new CosmosConfig();
             config.GetSection("CosmosConfig").Bind(cosmosConfig);

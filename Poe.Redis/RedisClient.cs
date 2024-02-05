@@ -24,4 +24,10 @@ public class RedisClient
         return _db.StringGet(key);
     }
     
+    public void SetHash(string key, Dictionary<string, string> hashFields)
+    {
+        var entries = hashFields.Select(kv => new HashEntry(kv.Key, kv.Value)).ToArray();
+        _db.HashSet(key, entries);
+    }
+    
 }

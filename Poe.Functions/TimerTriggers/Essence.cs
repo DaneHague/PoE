@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using Poe.Redis;
 using PoE.Services;
 using PoE.Services.Models.Cosmos.PoE.CosmosStashItems;
 
@@ -12,17 +14,20 @@ public class Essence
 {
     private readonly IGetEssenceItems _getEssenceItems;
     private readonly ICosmosService _cosmosService;
+    private readonly RedisClient _redisClient;
 
     public Essence(
         IGetEssenceItems getEssenceItems,
-        ICosmosService cosmosService)
+        ICosmosService cosmosService,
+        RedisClient redisClient)
     {
         _getEssenceItems = getEssenceItems;
         _cosmosService = cosmosService;
+        _redisClient = redisClient;
     }
     
     [FunctionName("EssenceTrigger")]
-    public async Task Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
+    public async Task Run([TimerTrigger("0 */30 * * * *")] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Essence trigger started at {DateTime.Now}");
         
@@ -30,6 +35,14 @@ public class Essence
 
         foreach (CosmosEssenceItems essenceItem in items.Stash.Items)
         {
+            var fields = new Dictionary<string, string>
+            {
+                {"Name", essenceItem.Name},
+                {"StackSize", essenceItem.StackSize.ToString()}
+            };
+            
+            _redisClient.SetHash($"EssenceItem:{essenceItem.id}", fields);
+            
             await _cosmosService.UpsertItemAsync(essenceItem, essenceItem.id);
         }
         

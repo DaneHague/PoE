@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Poe.Redis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a47d6c8cca58f23c65553452c36a90c30a877b7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Poe.Redis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Poe.Redis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

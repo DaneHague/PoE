@@ -27,7 +27,7 @@ public class Essence
     }
     
     [FunctionName("EssenceTrigger")]
-    public async Task Run([TimerTrigger("0 */30 * * * *")] TimerInfo myTimer, ILogger log)
+    public async Task Run([TimerTrigger("0 0 * * * *")] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Essence trigger started at {DateTime.Now}");
         

@@ -30,4 +30,28 @@ public class RedisClient
         _db.HashSet(key, entries);
     }
     
+    public async Task<Dictionary<string, Dictionary<string, string>>> GetHashesByPattern(string pattern)
+    {
+        var server = GetServer();
+        var keys = server.Keys(_db.Database, pattern);
+        var hashes = new Dictionary<string, Dictionary<string, string>>();
+
+        foreach (var key in keys)
+        {
+            if (_db.KeyType(key) == RedisType.Hash)
+            {
+                var hashEntries = _db.HashGetAll(key);
+                var hashFields = hashEntries.ToDictionary(he => he.Name.ToString(), he => he.Value.ToString());
+                hashes.Add(key, hashFields);
+            }
+        }
+        
+        return hashes;
+    }
+    
+    private IServer GetServer()
+    {
+        var endpoint = _redis.GetEndPoints().First();
+        return _redis.GetServer(endpoint);
+    }
 }

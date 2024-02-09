@@ -5,8 +5,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Poe.Redis;
 using PoE.Services;
-using PoE.Services.Models;
-using PoE.Services.Models.Cosmos.PoE;
 using PoE.Services.Models.Cosmos.PoE.CosmosCurrencyItems;
 
 namespace Poe.Functions.Triggers;
@@ -28,7 +26,7 @@ public class Currency
     }
     
     [FunctionName("CurrencyTrigger")]
-    public async Task Run([TimerTrigger("0 */30 * * * *")] TimerInfo myTimer, ILogger log)
+    public async Task Run([TimerTrigger("0 0 * * * *")] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"Currency trigger started at {DateTime.Now}");
     

@@ -20,7 +20,7 @@ public class GetEssence
     
     [FunctionName("GetEssence")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetEssence")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "GetEssence")] HttpRequest req,
         ILogger log)
     {
         try

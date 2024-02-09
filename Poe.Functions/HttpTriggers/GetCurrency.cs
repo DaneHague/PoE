@@ -19,7 +19,7 @@ public class GetCurrency
     
     [FunctionName("GetCurrency")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetCurrency")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "GetCurrency")] HttpRequest req,
         ILogger log)
     {
         try

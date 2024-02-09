@@ -9,27 +9,28 @@ using Poe.Redis;
 
 namespace Poe.Functions.HttpTriggers;
 
-public class GetCurrency
+public class GetEssence
 {
     private readonly RedisClient _redisClient;
-    public GetCurrency(RedisClient redisClient)
+
+    public GetEssence(RedisClient redisClient)
     {
         _redisClient = redisClient;
     }
     
-    [FunctionName("GetCurrency")]
+    [FunctionName("GetEssence")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetCurrency")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetEssence")] HttpRequest req,
         ILogger log)
     {
         try
         {
-            var result = await _redisClient.GetHashesByPattern("CurrencyItem:*");
+            var result = await _redisClient.GetHashesByPattern("EssenceItem:*");
             return new OkObjectResult(result);
         }
         catch (Exception ex)
         {
-            log.LogError($"Error retrieving currency items: {ex.Message}");
+            log.LogError($"Error retrieving essence items: {ex.Message}");
             return new StatusCodeResult(500); // Internal Server Error
         }
     }

@@ -50,6 +50,22 @@ public class CosmosService : ICosmosService
         return await _container.ReadItemAsync<T>(id, new PartitionKey(partitionKey));
     }
 
+    public async Task<IEnumerable<T>> GetAllItemsAsync<T>() where T : ICosmosEntity
+    {
+        var containerAttribute = typeof(T).GetCustomAttribute<ContainerAttribute>();
+        var containerName = containerAttribute.Name;
+        Container container = _cosmosClient.GetContainer(_config.Database, containerName);
+        
+        var query = container.GetItemQueryIterator<T>("SELECT * FROM c");
+        List<T> results = new List<T>();
+        while (query.HasMoreResults)
+        {
+            var response = await query.ReadNextAsync();
+            results.AddRange(response.Resource);
+        }
+        return results;
+    }
+
     public async Task<IEnumerable<T>> GetItemsAsyncQuery<T>(string queryString) where T : ICosmosEntity
     {
         var containerAttribute = typeof(T).GetCustomAttribute<ContainerAttribute>();

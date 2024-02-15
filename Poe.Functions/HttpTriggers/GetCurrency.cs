@@ -6,15 +6,18 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Poe.Redis;
+using PoE.Services;
+using PoE.Services.Models.Cosmos.PoE.CosmosCurrencyItems;
 
 namespace Poe.Functions.HttpTriggers;
 
 public class GetCurrency
 {
-    private readonly RedisClient _redisClient;
-    public GetCurrency(RedisClient redisClient)
+    private readonly ICosmosService _cosmosService;
+    public GetCurrency(
+        ICosmosService cosmosService)
     {
-        _redisClient = redisClient;
+        _cosmosService = cosmosService;
     }
     
     [FunctionName("GetCurrency")]
@@ -24,7 +27,9 @@ public class GetCurrency
     {
         try
         {
-            var result = await _redisClient.GetHashesByPattern("CurrencyItem:*");
+            var query = "SELECT * FROM c WHERE c.Type = 'Currency'";
+            
+            var result = await _cosmosService.GetItemsAsyncQuery<CosmosCurrencyItems>(query);
             return new OkObjectResult(result);
         }
         catch (Exception ex)

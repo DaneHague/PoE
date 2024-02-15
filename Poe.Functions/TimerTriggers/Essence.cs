@@ -14,16 +14,13 @@ public class Essence
 {
     private readonly IGetEssenceItems _getEssenceItems;
     private readonly ICosmosService _cosmosService;
-    private readonly RedisClient _redisClient;
 
     public Essence(
         IGetEssenceItems getEssenceItems,
-        ICosmosService cosmosService,
-        RedisClient redisClient)
+        ICosmosService cosmosService)
     {
         _getEssenceItems = getEssenceItems;
         _cosmosService = cosmosService;
-        _redisClient = redisClient;
     }
     
     [FunctionName("EssenceTrigger")]
@@ -35,14 +32,7 @@ public class Essence
 
         foreach (CosmosEssenceItems essenceItem in items.Stash.Items)
         {
-            var fields = new Dictionary<string, string>
-            {
-                {"Name", essenceItem.Name},
-                {"StackSize", essenceItem.StackSize.ToString()}
-            };
-            
-            _redisClient.SetHash($"EssenceItem:{essenceItem.id}", fields);
-            
+            essenceItem.Type = "Essence";
             await _cosmosService.UpsertItemAsync(essenceItem, essenceItem.id);
         }
         

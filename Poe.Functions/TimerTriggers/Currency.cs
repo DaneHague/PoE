@@ -13,16 +13,13 @@ public class Currency
 {
     private readonly IGetCurrencyItems _getCurrencyItems;
     private readonly ICosmosService _cosmosService;
-    private readonly RedisClient _redisClient;
 
     public Currency(
             IGetCurrencyItems getCurrencyItems,
-            ICosmosService cosmosService,
-            RedisClient redisClient)
+            ICosmosService cosmosService)
     {
         _getCurrencyItems = getCurrencyItems;
         _cosmosService = cosmosService;
-        _redisClient = redisClient;
     }
     
     [FunctionName("CurrencyTrigger")]
@@ -34,14 +31,7 @@ public class Currency
         
         foreach (CosmosCurrencyItems currencyItem in items.Stash.Items)
         {
-            var fields = new Dictionary<string, string>
-            {
-                {"Name", currencyItem.Name},
-                {"StackSize", currencyItem.StackSize.ToString()}
-            };
-            
-            _redisClient.SetHash($"CurrencyItem:{currencyItem.id}", fields);
-            
+            currencyItem.Type = "Currency";
             await _cosmosService.UpsertItemAsync(currencyItem, currencyItem.id);
         }
         

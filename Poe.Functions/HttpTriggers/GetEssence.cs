@@ -5,17 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Poe.Redis;
+using PoE.Services;
+using PoE.Services.Models.Cosmos.PoE.CosmosStashItems;
 
 namespace Poe.Functions.HttpTriggers;
 
 public class GetEssence
 {
-    private readonly RedisClient _redisClient;
-
-    public GetEssence(RedisClient redisClient)
+    private readonly ICosmosService _cosmosService;
+    public GetEssence(
+        ICosmosService cosmosService)
     {
-        _redisClient = redisClient;
+        _cosmosService = cosmosService;
     }
     
     [FunctionName("GetEssence")]
@@ -25,7 +26,8 @@ public class GetEssence
     {
         try
         {
-            var result = await _redisClient.GetHashesByPattern("EssenceItem:*");
+            var query = "SELECT * FROM c WHERE c.Type = 'Essence'";
+            var result = await _cosmosService.GetItemsAsyncQuery<CosmosEssenceItems>(query);
             return new OkObjectResult(result);
         }
         catch (Exception ex)

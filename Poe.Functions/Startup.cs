@@ -49,6 +49,7 @@ namespace Poe.Functions
             builder.Services.AddTransient<IGetStashService, GetStashService>();
             builder.Services.AddTransient<IGetCurrencyItems, GetCurrencyItems>();
             builder.Services.AddTransient<IGetEssenceItems, GetEssenceItems>();
+            builder.Services.AddTransient<IGetTradeRequestResponseService, GetTradeRequestResponseService>();
             
             builder.Services.AddTransient<ICosmosService, CosmosService>();
 
@@ -72,6 +73,14 @@ namespace Poe.Functions
                 client.BaseAddress = new Uri(poeConfig.BaseApiAddress);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", poeConfig.ApiToken);
+            });
+            
+            builder.Services.AddHttpClient<IGetTradeRequestResponseService, GetTradeRequestResponseService>(client =>
+            {
+                client.BaseAddress = new Uri("https://www.pathofexile.com/api/trade/search/affliction");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.32.2");
+                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", poeConfig.ApiToken);
             });
             
         }

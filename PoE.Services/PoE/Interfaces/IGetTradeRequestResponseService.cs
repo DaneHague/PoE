@@ -4,5 +4,5 @@ namespace PoE.Services;
 
 public interface IGetTradeRequestResponseService
 {
-    Task<PoETradeRequestResponse> GetTradeRequestResponse();
+    Task<PoETradeRequestResponse> GetTradeRequestResponse(string itemName);
 }

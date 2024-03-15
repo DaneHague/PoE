@@ -10,25 +10,26 @@ using PoE.Services.Models.PoE.CosmosItemPrice;
 
 namespace Poe.Functions.Triggers;
 
-public class MageBloodHourly
+public class HeadhunterHourly
 {
     private readonly ICosmosService _cosmosService;
     private readonly IGetTradeRequestResponseService _getTradeRequestResponseService;
 
-    public MageBloodHourly(
+    public HeadhunterHourly(
         ICosmosService cosmosService,
-        IGetTradeRequestResponseService getTradeRequestResponseService)
+        IGetTradeRequestResponseService getTradeRequestResponseService
+    )
     {
         _cosmosService = cosmosService;
         _getTradeRequestResponseService = getTradeRequestResponseService;
     }
     
-    [FunctionName("MageBloodHourly")]
+    [FunctionName("HeadhunterHourly")]
     public async Task RunAsync([TimerTrigger("0 0 * * * *")] TimerInfo myTimer, ILogger log)
     {
-        log.LogInformation($"C# Timer trigger function executed at: {DateTime.UtcNow}");
-        
-        var tradeRequestResponses = await _getTradeRequestResponseService.GetTradeRequestResponse("Mageblood");
+        log.LogInformation($"Headhunter started at: {DateTime.UtcNow}");
+
+        var tradeRequestResponses = await _getTradeRequestResponseService.GetTradeRequestResponse("Headhunter");
         
         if (tradeRequestResponses != null)
         {
@@ -46,7 +47,7 @@ public class MageBloodHourly
             
             decimal mean = prices.Sum() / prices.Count;
             
-            string itemName = "MageBlood";
+            string itemName = "Headhunter";
             var existingItems = await _cosmosService.GetAllItemsAsync<CosmosItemPrice>();
             var existingItem = existingItems.FirstOrDefault(i => i.ItemName.Equals(itemName));
 
@@ -78,10 +79,9 @@ public class MageBloodHourly
                     }
                 };
             }
-
             await _cosmosService.UpsertItemAsync(cosmosItemPrice, cosmosItemPrice.ItemName);
-
             
+            log.LogInformation($"Headhunter finished at: {DateTime.UtcNow}");
         }
     }
 }

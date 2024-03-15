@@ -24,7 +24,7 @@ public class MageBloodHourly
     }
     
     [FunctionName("MageBloodHourly")]
-    public async Task RunAsync([TimerTrigger("0 0 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
+    public async Task RunAsync([TimerTrigger("0 0 * * * *")] TimerInfo myTimer, ILogger log)
     {
         log.LogInformation($"C# Timer trigger function executed at: {DateTime.UtcNow}");
         
@@ -58,7 +58,7 @@ public class MageBloodHourly
                 cosmosItemPrice.Prices.Add(new ItemPrice
                 {
                     Price = mean,
-                    TimeRecorded = DateTime.UtcNow
+                    TimeRecorded = DateTime.Now
                 });
             }
             else

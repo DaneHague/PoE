@@ -53,4 +53,17 @@ public class GetTradeRequestResponseService : IGetTradeRequestResponseService
         
         return null;
     }
+    
+    public async Task<PoETradeItemResponse> GetTradeItemResponse(string requestString)
+    {
+        var response = _httpClient.GetAsync($"https://www.pathofexile.com/api/trade/fetch/{requestString}");
+        
+        if (response.Result.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Result.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<PoETradeItemResponse>(responseContent);
+        }
+
+        return null;
+    }
 }

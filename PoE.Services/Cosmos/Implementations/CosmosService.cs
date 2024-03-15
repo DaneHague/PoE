@@ -43,7 +43,7 @@ public class CosmosService : ICosmosService
         Container container = _cosmosClient.GetContainer(_config.Database, containerName);
         
         return await container.UpsertItemAsync(item, new PartitionKey(partitionKey));
-    }
+    }   
 
     public async Task<T> GetItemAsync<T>(string id, string partitionKey) where T : ICosmosEntity
     {

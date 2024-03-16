@@ -26,7 +26,7 @@ public class GetItemPrices
     
     [FunctionName("GetItemPrices")]
     public async Task<IActionResult> RunAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "get", 
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", 
             Route = "GetItemPrices/{itemName}/{dateFrom}/{dateTo}")] HttpRequest req, 
         ILogger log,
         string itemName,

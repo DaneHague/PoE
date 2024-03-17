@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "N7v54m7pgq8qSEcxsBNZvW6Akr3F4/vLIiwljuyjVNuwn3oxOlMUOyH0uLkVK6EqKh4iQ72TV2elCyHMSSuYZw==",
+  "dgSpecHash": "Cz3Yb9e5FwcbP+mJYJXIQI9ei/LrMRPbdxK65CoE/4fFUK1TmlJqpRe05rAhNbSU3kYbD2LYiCdfHWXUOPEpHA==",
   "success": true,
-  "projectFilePath": "/Users/dane/RiderProjects/PoE.Functions/Poe.Redis/Poe.Redis.csproj",
+  "projectFilePath": "C:\\Users\\Dane\\source\\repos\\PoE\\Poe.Redis\\Poe.Redis.csproj",
   "expectedPackageFiles": [
-    "/Users/dane/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
-    "/Users/dane/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
-    "/Users/dane/.nuget/packages/stackexchange.redis/2.7.17/stackexchange.redis.2.7.17.nupkg.sha512",
-    "/Users/dane/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512"
+    "C:\\Users\\Dane\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Dane\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\Dane\\.nuget\\packages\\stackexchange.redis\\2.7.17\\stackexchange.redis.2.7.17.nupkg.sha512",
+    "C:\\Users\\Dane\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
   ],
   "logs": []
 }

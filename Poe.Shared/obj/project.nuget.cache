@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i4PbpGSX9Borao1VuUY6KVVQN5gg9HkWzNj22WMG0SznzskPnr1ODWCurfXmDVxEExkMCXy66xjyBbM+zyKHxQ==",
+  "dgSpecHash": "cskfwG/4AP6CEROD2aFa2NGMpAUIXAZ1YvCPyKNJAX8gNIlNnrMKssayYJsBiieqO1acHUe/pjglym0y+0IpoQ==",
   "success": true,
-  "projectFilePath": "/Users/dane/RiderProjects/PoE.Functions/Poe.Shared/Poe.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Dane\\source\\repos\\PoE\\Poe.Shared\\Poe.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

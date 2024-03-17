@@ -34,8 +34,9 @@ C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.Genera
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.AssemblyInfoInputs.cache
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.AssemblyInfo.cs
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.csproj.CoreCompileInputs.cache
-C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.csproj.CopyComplete
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.dll
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\refint\PoE.Services.dll
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.pdb
 C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\ref\PoE.Services.dll
+C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Services.sourcelink.json
+C:\Users\Dane\source\repos\PoE\PoE.Services\obj\Debug\net6.0\PoE.Serv.598C5A5E.Up2Date

@@ -25,6 +25,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 
+*.dll
+
 **/obj/
 **/bin/
 

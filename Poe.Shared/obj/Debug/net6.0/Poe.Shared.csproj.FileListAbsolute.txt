@@ -13,7 +13,6 @@
 C:\Users\Dane\source\repos\PoE\Poe.Shared\bin\Debug\net6.0\Poe.Shared.deps.json
 C:\Users\Dane\source\repos\PoE\Poe.Shared\bin\Debug\net6.0\Poe.Shared.dll
 C:\Users\Dane\source\repos\PoE\Poe.Shared\bin\Debug\net6.0\Poe.Shared.pdb
-C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.csproj.AssemblyReference.cache
 C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.AssemblyInfoInputs.cache
 C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.AssemblyInfo.cs
@@ -22,3 +21,4 @@ C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.dll
 C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\refint\Poe.Shared.dll
 C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.pdb
 C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\ref\Poe.Shared.dll
+C:\Users\Dane\source\repos\PoE\Poe.Shared\obj\Debug\net6.0\Poe.Shared.sourcelink.json

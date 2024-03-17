@@ -22,6 +22,7 @@ public class Currency
         _cosmosService = cosmosService;
     }
     
+    // test
     [FunctionName("CurrencyTrigger")]
     public async Task Run([TimerTrigger("0 0 * * * *")] TimerInfo myTimer, ILogger log)
     {

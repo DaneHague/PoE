@@ -55,7 +55,7 @@ public class GetItemPrices
             .FirstOrDefault();
         
         itemPrices.Prices = itemPrices.Prices
-            .Where(p => p.Currency.Equals(currency, StringComparison.OrdinalIgnoreCase))
+            .Where(p => (p.Currency ?? "").Equals(currency, StringComparison.OrdinalIgnoreCase))
             .ToList();
         
         if (itemPrices is null)

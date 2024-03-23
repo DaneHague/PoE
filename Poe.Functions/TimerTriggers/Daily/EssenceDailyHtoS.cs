@@ -10,17 +10,17 @@ namespace Poe.Functions.Triggers;
 
 public class EssenceDailyHtoS
 {
-    private readonly ILogger _log;
+    private readonly ILogger<EssenceDailyHtoS> _log;
     private readonly ITimerTriggerService _timerTriggerService;
 
-    public EssenceDailyHtoS(ILogger log, ITimerTriggerService timerTriggerService)
+    public EssenceDailyHtoS(ILogger<EssenceDailyHtoS> log, ITimerTriggerService timerTriggerService)
     {
         _log = log;
         _timerTriggerService = timerTriggerService;
     }
 
     [FunctionName("EssenceDailyHtoS")]
-    public async Task RunAsync([TimerTrigger("0 15 17 * * *")] TimerInfo myTimer)
+    public async Task RunAsync([TimerTrigger("0 15 17 * * *", RunOnStartup = true)] TimerInfo myTimer)
     {
         _log.LogInformation($"EssenceDailyHtoS started at: {DateTime.UtcNow}");
 

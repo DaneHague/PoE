@@ -10,10 +10,10 @@ namespace Poe.Functions.Triggers;
 
 public class EssenceDailyTtoFinish
 {
-    private readonly ILogger _log;
+    private readonly ILogger<EssenceDailyTtoFinish> _log;
     private readonly ITimerTriggerService _timerTriggerService;
 
-    public EssenceDailyTtoFinish(ILogger log, ITimerTriggerService timerTriggerService)
+    public EssenceDailyTtoFinish(ILogger<EssenceDailyTtoFinish> log, ITimerTriggerService timerTriggerService)
     {
         _log = log;
         _timerTriggerService = timerTriggerService;

@@ -27,11 +27,12 @@ public class GetItemPrices
     [FunctionName("GetItemPrices")]
     public async Task<IActionResult> RunAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", 
-            Route = "GetItemPrices/{itemName}/{dateFrom}/{dateTo}")] HttpRequest req, 
+            Route = "GetItemPrices/{itemName}/{dateFrom}/{dateTo}/{currency}")] HttpRequest req, 
         ILogger log,
         string itemName,
         string dateFrom,
-        string dateTo)
+        string dateTo,
+        string currency)
     {
         DateTime convertedDateFrom = DateTime.Parse(dateFrom);
         DateTime convertedDateTo = DateTime.Parse(dateTo);
@@ -52,7 +53,11 @@ public class GetItemPrices
             .Where(c => c.ItemName.Equals(itemName, StringComparison.OrdinalIgnoreCase))
             .ToList()
             .FirstOrDefault();
-
+        
+        itemPrices.Prices = itemPrices.Prices
+            .Where(p => p.Currency.Equals(currency, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+        
         if (itemPrices is null)
         {
             return new NotFoundObjectResult("Item doesn't exist, please check the name or there is no data.");

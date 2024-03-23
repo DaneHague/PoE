@@ -35,12 +35,15 @@ public class EssenceDailyTtoFinish
         
         for (int i = 0; i < essenceList.Count; i++)
         {
-            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 3, true);
+            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 2, true);
 
             if (prices.Any())
             {
                 await _timerTriggerService.UpsertItemPrice(essenceList[i], prices);
             }
+            
+            // Wait for 10 seconds to avoid rate limiting
+            await Task.Delay(TimeSpan.FromSeconds(10));
         }
 
         _log.LogInformation($"EssenceDailyTtoFinish finished at: {DateTime.UtcNow}");

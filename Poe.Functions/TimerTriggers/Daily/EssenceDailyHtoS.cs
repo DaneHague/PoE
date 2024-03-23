@@ -20,7 +20,7 @@ public class EssenceDailyHtoS
     }
 
     [FunctionName("EssenceDailyHtoS")]
-    public async Task RunAsync([TimerTrigger("0 15 17 * * *", RunOnStartup = true)] TimerInfo myTimer)
+    public async Task RunAsync([TimerTrigger("0 15 17 * * *")] TimerInfo myTimer)
     {
         _log.LogInformation($"EssenceDailyHtoS started at: {DateTime.UtcNow}");
 
@@ -41,12 +41,15 @@ public class EssenceDailyHtoS
         
         for (int i = 0; i < essenceList.Count; i++)
         {
-            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 3, true);
+            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 2, true);
 
             if (prices.Any())
             {
                 await _timerTriggerService.UpsertItemPrice(essenceList[i], prices);
             }
+            
+            // Wait for 10 seconds to avoid rate limiting
+            await Task.Delay(TimeSpan.FromSeconds(10));
         }
         
         _log.LogInformation($"EssenceDailyHtoS finished at: {DateTime.UtcNow}");

@@ -20,7 +20,7 @@ public class EssenceDailyHtoS
     }
 
     [FunctionName("EssenceDailyHtoS")]
-    public async Task RunAsync([TimerTrigger("0 15 17 * * *", RunOnStartup = true)] TimerInfo myTimer)
+    public async Task RunAsync([TimerTrigger("0 15 17 * * *")] TimerInfo myTimer)
     {
         _log.LogInformation($"EssenceDailyHtoS started at: {DateTime.UtcNow}");
 

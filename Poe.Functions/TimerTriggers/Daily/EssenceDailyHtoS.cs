@@ -20,7 +20,7 @@ public class EssenceDailyHtoS
     }
 
     [FunctionName("EssenceDailyHtoS")]
-    public async Task RunAsync([TimerTrigger("0 15 17 * * *")] TimerInfo myTimer)
+    public async Task RunAsync([TimerTrigger("0 15 17 * * *", RunOnStartup = true)] TimerInfo myTimer)
     {
         _log.LogInformation($"EssenceDailyHtoS started at: {DateTime.UtcNow}");
 
@@ -49,7 +49,7 @@ public class EssenceDailyHtoS
             }
             
             // Wait for 10 seconds to avoid rate limiting
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            await Task.Delay(TimeSpan.FromSeconds(20));
         }
         
         _log.LogInformation($"EssenceDailyHtoS finished at: {DateTime.UtcNow}");

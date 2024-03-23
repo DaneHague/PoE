@@ -47,7 +47,7 @@ public class EssenceDailyAtoG
             }
             
             // Wait for 10 seconds to avoid rate limiting
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            await Task.Delay(TimeSpan.FromSeconds(20));
         }
 
         _log.LogInformation($"EssenceDailyAtoG finished at: {DateTime.UtcNow}");

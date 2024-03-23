@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PoE.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d8bd62bbaed476ade0a8c5696c6bab04cdc8c7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PoE.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PoE.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

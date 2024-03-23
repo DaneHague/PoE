@@ -50,6 +50,7 @@ namespace Poe.Functions
             builder.Services.AddTransient<IGetCurrencyItems, GetCurrencyItems>();
             builder.Services.AddTransient<IGetEssenceItems, GetEssenceItems>();
             builder.Services.AddTransient<IGetTradeRequestResponseService, GetTradeRequestResponseService>();
+            builder.Services.AddTransient<ITimerTriggerService, TimerTriggerService>();
             
             builder.Services.AddTransient<ICosmosService, CosmosService>();
 

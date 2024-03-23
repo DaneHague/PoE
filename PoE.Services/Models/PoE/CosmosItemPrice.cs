@@ -21,5 +21,7 @@ namespace PoE.Services.Models.PoE.CosmosItemPrice
         public decimal Price { get; set; }
         [JsonPropertyName("timeRecorded")]
         public DateTime TimeRecorded { get; set; }
+        [JsonPropertyName("currency")]
+        public string Currency { get; set; }
     }
 }

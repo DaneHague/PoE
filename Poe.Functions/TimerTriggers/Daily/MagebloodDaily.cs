@@ -12,10 +12,10 @@ namespace Poe.Functions.Triggers;
 
 public class MagebloodDaily
 {
-    private readonly ILogger _log;
+    private readonly ILogger<MagebloodDaily> _log;
     private readonly ITimerTriggerService _timerTriggerService;
 
-    public MagebloodDaily(ILogger log, ITimerTriggerService timerTriggerService)
+    public MagebloodDaily(ILogger<MagebloodDaily> log, ITimerTriggerService timerTriggerService)
     {
         _log = log;
         _timerTriggerService = timerTriggerService;

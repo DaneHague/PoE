@@ -9,10 +9,10 @@ namespace Poe.Functions.Triggers;
 
 public class HeadhunterDaily
 {
-    private readonly ILogger _log;
+    private readonly ILogger<HeadhunterDaily> _log;
     private readonly ITimerTriggerService _timerTriggerService;
 
-    public HeadhunterDaily(ILogger log, ITimerTriggerService timerTriggerService)
+    public HeadhunterDaily(ILogger<HeadhunterDaily> log, ITimerTriggerService timerTriggerService)
     {
         _log = log;
         _timerTriggerService = timerTriggerService;

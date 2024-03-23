@@ -10,17 +10,17 @@ namespace Poe.Functions.Triggers;
 
 public class EssenceDailyAtoG
 {
-    private readonly ILogger _log;
+    private readonly ILogger<EssenceDailyAtoG> _log;
     private readonly ITimerTriggerService _timerTriggerService;
 
-    public EssenceDailyAtoG(ILogger log, ITimerTriggerService timerTriggerService)
+    public EssenceDailyAtoG(ILogger<EssenceDailyAtoG> log, ITimerTriggerService timerTriggerService)
     {
         _log = log;
         _timerTriggerService = timerTriggerService;
     }
 
     [FunctionName("EssenceDailyAtoG")]
-    public async Task RunAsync([TimerTrigger("0 0 17 * * *")] TimerInfo myTimer)
+    public async Task RunAsync([TimerTrigger("0 0 17 * * *", RunOnStartup = true)] TimerInfo myTimer)
     {
         _log.LogInformation($"EssenceDailyAtoG started at: {DateTime.UtcNow}");
 
@@ -39,7 +39,7 @@ public class EssenceDailyAtoG
 
         for (int i = 0; i < essenceList.Count; i++)
         {
-            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 3);
+            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 3, true);
 
             if (prices.Any())
             {

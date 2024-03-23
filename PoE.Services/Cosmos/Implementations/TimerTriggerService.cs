@@ -1,3 +1,4 @@
+using PoE.Services.Models.PoE;
 using PoE.Services.Models.PoE.CosmosItemPrice;
 
 namespace PoE.Services.Implementations;
@@ -15,9 +16,17 @@ public class TimerTriggerService : ITimerTriggerService
         _getTradeRequestResponseService = getTradeRequestResponseService;
     }
 
-    public async Task<List<(decimal MeanPrice, string Currency)>> FetchTradeResponsesAndCalculateMeanPrice(string itemName, int maxResponses)
+    public async Task<List<(decimal MeanPrice, string Currency)>> FetchTradeResponsesAndCalculateMeanPrice(string itemName, int maxResponses, bool isCurrency = false)
     {
-        var tradeRequestResponses = await _getTradeRequestResponseService.GetTradeRequestResponse(itemName);
+        PoETradeRequestResponse tradeRequestResponses = new();
+        if (isCurrency)
+        {
+            tradeRequestResponses = await _getTradeRequestResponseService.GetTradeRequestResponseCurrency(itemName);
+        }
+        else
+        {
+            tradeRequestResponses = await _getTradeRequestResponseService.GetTradeRequestResponse(itemName);
+        }
 
         List<(decimal Price, string Currency)> prices = new List<(decimal Price, string Currency)>();
 

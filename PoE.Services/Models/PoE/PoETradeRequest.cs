@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace PoE.Services.Models.PoE.PoETradeRequest
+namespace PoE.Services.Models.PoE.Item
 {
     public class PoETradeRequest
     {
@@ -20,7 +20,7 @@ namespace PoE.Services.Models.PoE.PoETradeRequest
         public string Name { get; set; }
 
         [JsonPropertyName("stats")]
-        public List<Stat> Stats { get; set; }
+        public List<ItemStat> Stats { get; set; }
     }
 
     public class Status
@@ -29,7 +29,7 @@ namespace PoE.Services.Models.PoE.PoETradeRequest
         public string Option { get; set; }
     }
 
-    public class Stat
+    public class ItemStat
     {
         [JsonPropertyName("type")]
         public string Type { get; set; }

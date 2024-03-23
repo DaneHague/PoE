@@ -41,7 +41,7 @@ public class EssenceDailyHtoS
         
         for (int i = 0; i < essenceList.Count; i++)
         {
-            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 3);
+            var prices = await _timerTriggerService.FetchTradeResponsesAndCalculateMeanPrice(essenceList[i], 3, true);
 
             if (prices.Any())
             {

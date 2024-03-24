@@ -46,7 +46,7 @@ public class EssenceDailyAtoG
                 await _timerTriggerService.UpsertItemPrice(essenceList[i], prices);
             }
             
-            // Wait for 10 seconds to avoid rate limiting
+            // Wait for 20 seconds to avoid rate limiting
             await Task.Delay(TimeSpan.FromSeconds(20));
         }
 
